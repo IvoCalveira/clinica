@@ -10,5 +10,5 @@ export const routes: Routes = [
     {path:'registro', component:RegistrarComponent},
     {path:'error', component:ErrorComponent},
     {path:'cargando', component:CargandoComponent},
-    {path:'**', component:BienvenidoComponent},
+    {path:'**', component:BienvenidoComponent, },
 ];
