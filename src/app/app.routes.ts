@@ -6,9 +6,11 @@ import { CargandoComponent } from '../componentes/cargando/cargando.component';
 import { ErrorComponent } from '../componentes/error/error.component';
 
 export const routes: Routes = [
-    {path:'login', component:LoginComponent},
-    {path:'registro', component:RegistrarComponent},
-    {path:'error', component:ErrorComponent},
-    {path:'cargando', component:CargandoComponent},
-    {path:'**', component:BienvenidoComponent, },
+    {path:'bienvenido', component:BienvenidoComponent, children:[
+        {path:'', component: LoginComponent},
+        {path:'registrar', component: RegistrarComponent}
+            ]
+    },
+    {path:'', redirectTo:'bienvenido', pathMatch:'full'},
+    {path:'**', component:ErrorComponent, },
 ];

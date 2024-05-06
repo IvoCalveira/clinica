@@ -13,4 +13,8 @@ import { MenuComponent } from '../menu/menu.component';
 })
 export class LoginComponent {
   public usuario:Usuario = {nombre:'', password:''};
+
+  public login(){
+    
+  }
 }
