@@ -12,9 +12,15 @@ import { MenuComponent } from '../menu/menu.component';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  public usuario:Usuario = {nombre:'', password:''};
+  listaUsuarios:Usuario[] = [];
+  public usuario:Usuario = {nombre:'', password:'', apellido:''};
 
   public login(){
-    
+    this.listaUsuarios = JSON.parse(localStorage.getItem('usuarios')|| '[]');
+    if(this.listaUsuarios.filter(t=> t.nombre.toLowerCase() == this.usuario.nombre.toLowerCase() &&
+     t.password == this.usuario.password).length == 1)
+     {
+      alert("Bienvenido");
+     }
   }
 }

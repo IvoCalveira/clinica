@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Route, Router, RouterModule } from '@angular/router';
 import { Usuario } from '../../app/entidades/usuario';
 
 @Component({
@@ -12,10 +12,24 @@ import { Usuario } from '../../app/entidades/usuario';
   styleUrl: './registrar.component.css'
 })
 export class RegistrarComponent {
-  public usuario:Usuario = {nombre:'', password:''};
+  listaUsuarios:Usuario[] = [];
+  public usuario:Usuario = {nombre:'', password:'', apellido:''};
   public password2:string='';
 
-    public registrar(){
+  constructor(public router:Router) {
+    this.listaUsuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
+  }
 
+
+  validarExiste(){
+    return this.listaUsuarios.filter(
+      t=> t.nombre.toLowerCase() == this.usuario.nombre.toLowerCase()).length == 1;
+  }
+
+    public registrar(){
+      this.listaUsuarios.push(this.usuario);
+      localStorage.setItem('usuarios', JSON.stringify(this.listaUsuarios));
+      this.listaUsuarios = JSON.parse(JSON.stringify(this.listaUsuarios));
+      this.router.navigateByUrl('/bienvenido');
     }
 }
