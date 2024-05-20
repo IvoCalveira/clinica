@@ -19,9 +19,9 @@ export class LoginComponent {
 
   constructor(private route:Router, private usuarioservices:UsuarioService){
 
-    // if(this.usuarioservices.estoyLogueado()){
-    //    route.navigateByUrl('/bienvenido');
-    // }
+    if(this.usuarioservices.estoyLogueado()){
+       route.navigateByUrl('/bienvenido');
+    }
   }
 
   public login(){
@@ -36,14 +36,14 @@ export class LoginComponent {
             this.usuarioservices.setLogueadoXApi(<Usuario>x);
 
             localStorage.setItem('usuarioLogueado',JSON.stringify(this.usuario));
-        
+           
           }
           
           
         )
-        
+        this.usuarioservices.estoyLogueado();
         this.route.navigateByUrl('/bienvenido');
-      this.usuarioservices.estoyLogueado();
+      
     }
   }
 

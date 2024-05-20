@@ -10,12 +10,8 @@ export class UsuarioService {
   private APIURL:string =  "https://ivo_calveira-apiclinica.mdbgo.io";
 
   constructor(public http:HttpClient ) {
-    this.listaUsuario = JSON.parse(localStorage.getItem('usuarios') || '[]');
+    this.listaUsuario = JSON.parse(localStorage.getItem('usuario') || '[]');
      this.setLogueado()
-  }
-
-  public mostrarAPi() {
-    return this.http.get(this.APIURL  + "/pruebajson");
   }
 
   public loginEnApi(usuario:Usuario){
