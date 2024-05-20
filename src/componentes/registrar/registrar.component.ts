@@ -13,7 +13,7 @@ import { Usuario } from '../../app/entidades/usuario';
 })
 export class RegistrarComponent {
   listaUsuarios:Usuario[] = [];
-  public usuario:Usuario = {nombre:'', password:'', apellido:''};
+  public usuario:Usuario = {nombre:'', password:'', apellido:'', user:'', mail:'', tipo_usuario:0, nacimiento: new Date()};
   public password2:string='';
 
   constructor(public router:Router) {

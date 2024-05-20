@@ -13,7 +13,7 @@ import { MenuComponent } from '../menu/menu.component';
 })
 export class LoginComponent {
   listaUsuarios:Usuario[] = [];
-  public usuario:Usuario = {nombre:'', password:'', apellido:''};
+  public usuario:Usuario = {nombre:'', password:'', apellido:'', user:'', mail:'', tipo_usuario:0, nacimiento: new Date()};
 
   public login(){
     this.listaUsuarios = JSON.parse(localStorage.getItem('usuarios')|| '[]');
