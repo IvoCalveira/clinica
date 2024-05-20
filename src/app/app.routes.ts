@@ -7,8 +7,8 @@ import { ErrorComponent } from '../componentes/error/error.component';
 
 export const routes: Routes = [
     {path:'bienvenido', component:BienvenidoComponent, children:[
-        {path:'', component: LoginComponent},
-        {path:'registrar', component: RegistrarComponent}
+        {path:'registrar', component: RegistrarComponent},
+        {path:'login', component: LoginComponent}
             ]
     },
     {path:'', redirectTo:'bienvenido', pathMatch:'full'},

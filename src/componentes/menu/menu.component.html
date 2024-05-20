@@ -11,10 +11,13 @@
             <a class="nav-link active" aria-current="page" [routerLink]="'/bienvenido'">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="'/bienvenido'">Log in</a>
+            <a class="nav-link"  [routerLink]="'/bienvenido/login'">Log in</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="'/bienvenido/registrar'">Registrarse</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="estaLogueado" (click)="logout()">Cerrar Sesión</a>
           </li>
         </ul>
        
