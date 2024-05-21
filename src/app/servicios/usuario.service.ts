@@ -13,6 +13,9 @@ export class UsuarioService {
     this.listaUsuario = JSON.parse(localStorage.getItem('usuario') || '[]');
      this.setLogueado()
   }
+  public usuarioLogueado: Usuario = { nombre: '', password: '', mail: '', user:'', apellido: '', nacimiento: new Date(), tipo_usuario:0 };
+
+  public listaUsuario: Usuario[] = [];
 
   public loginEnApi(usuario:Usuario){
     return this.http.post(this.APIURL  + "/login",usuario);
@@ -26,9 +29,7 @@ export class UsuarioService {
     return this.http.post(this.APIURL  + "/insertar",usuario);
   }
 
-  public usuarioLogueado: Usuario = { nombre: '', password: '', mail: '', user:'', apellido: '', nacimiento: new Date(), tipo_usuario:0 };
-
-  public listaUsuario: Usuario[] = [];
+  
 
   public estoyLogueado() :boolean{
     return this.usuarioLogueado.nombre != '';

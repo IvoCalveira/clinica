@@ -18,13 +18,13 @@ export class RegistrarComponent {
   public password2:string='';
 
   constructor(public router:Router, private us:UsuarioService) {
-    this.listaUsuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
+    //this.listaUsuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
   }
 
 
   validarExiste(){
-    return this.listaUsuarios.filter(
-      t=> t.nombre.toLowerCase() == this.usuario.nombre.toLowerCase()).length == 1;
+     return this.listaUsuarios.filter(
+       t=> t.nombre.toLowerCase() == this.usuario.nombre.toLowerCase()).length == 1;
   }
 
     // public registrar(){
@@ -37,7 +37,7 @@ export class RegistrarComponent {
       this.us.registrar(this.usuario).subscribe(
         x => {
                 console.log(x);
-                this.us.setLogueadoXApi(<Usuario>x)
+                //this.us.setLogueadoXApi(<Usuario>x)
                 this.router.navigateByUrl('/bienvenido/login')
           }
       );

@@ -16,7 +16,7 @@ import { setAlternateWeakRefImpl } from '@angular/core/primitives/signals';
 export class MenuComponent {
 
   public listaUsuario:Usuario [] = [];
-  public estaLogueado:boolean=false;
+  // public estaLogueado:boolean=false;
   private route: Router = new Router;
   
 
@@ -25,14 +25,15 @@ export class MenuComponent {
     
 
     if(this.usuarioservices.usuarioLogueado.user != '' ){
-      this.estaLogueado=true;
-      this.listaUsuario = JSON.parse(localStorage.getItem('usuarioLogueado') || '[]');
+      // this.estaLogueado=true;
+      this.usuarioservices.estoyLogueado();
+      //this.listaUsuario = JSON.parse(localStorage.getItem('usuarioLogueado') || '[]');
     }
 
 
 
     //Si hay, se guarda en listaUsuario el usuario que este logueado desde el LocalStorage
-    this.listaUsuario = JSON.parse(localStorage.getItem('usuarioLogueado') || '[]');
+   // this.listaUsuario = JSON.parse(localStorage.getItem('usuarioLogueado') || '[]');
 
     //Verifico si hay un usuario logueado
     //if(this.listaUsuario.length>0)
@@ -45,7 +46,7 @@ export class MenuComponent {
 
     this.listaUsuario = [];
     this.usuarioservices.usuarioLogueado = {nombre: '',apellido:'', mail:'', nacimiento: new Date(), user:'', password: '', tipo_usuario: 0};
-    this.estaLogueado=false;
+    // this.estaLogueado=false;
 
     this.route.navigateByUrl('/bienvenido');
 
