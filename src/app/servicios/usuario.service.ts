@@ -10,8 +10,8 @@ export class UsuarioService {
   private APIURL:string =  "https://ivo_calveira-apiclinica.mdbgo.io";
 
   constructor(public http:HttpClient ) {
-    this.listaUsuario = JSON.parse(localStorage.getItem('usuario') || '[]');
-     this.setLogueado()
+    //this.listaUsuario = JSON.parse(localStorage.getItem('usuario') || '[]');
+     this.setLogueado();
   }
   public usuarioLogueado: Usuario = { nombre: '', password: '', mail: '', user:'', apellido: '', nacimiento: new Date(), tipo_usuario:0 };
 
@@ -36,7 +36,7 @@ export class UsuarioService {
   }
 
   public setLogueado(){
-    if (localStorage.getItem('usuarioLogueado') ?? '' != '')
-      this.usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLogueado') ?? '');
+    if (localStorage.getItem('usuarioLocal') ?? '' != '')
+      this.usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLocal') ?? '');
   }
 }

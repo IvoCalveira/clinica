@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 export class LoginComponent {
   // listaUsuarios:Usuario[] = [];
   public usuario:Usuario = {nombre: '',apellido:'', mail:'', nacimiento: new Date(), user:'', password: '', tipo_usuario: 0};
-  public listaUsuario:Usuario [] = [];
+  public usuarioLocal:Usuario [] = [];
   public loading:boolean = false;
 
 
@@ -34,7 +34,8 @@ export class LoginComponent {
     // if(this.listaUsuario.filter(t=> t.nombre.toLowerCase == this.usuario.nombre.toLowerCase && t.password == this.usuario.password ).length == 1){
 
     //   //guardamos usuario logueado
-    //   localStorage.setItem('usuarioLogueado', JSON.stringify(this.listaUsuario.filter(t=> t.nombre.toLowerCase == this.usuario.nombre.toLowerCase && t.password == this.usuario.password )[0]));
+   
+    
     
     this.usuarioservices.loginEnApi(this.usuario).subscribe(
       x=>{
@@ -44,7 +45,7 @@ export class LoginComponent {
             this.usuarioservices.setLogueadoXApi(<Usuario>x);
 
             //Guardamos en el local storage el usuario logueado
-            // localStorage.setItem('usuarioLogueado',JSON.stringify(this.usuario));
+            localStorage.setItem('usuarioLocal',JSON.stringify(<Usuario>x));
             
 
             //pasar a la pagina de bienvenida

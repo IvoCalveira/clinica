@@ -18,19 +18,20 @@ export class MenuComponent {
   public listaUsuario:Usuario [] = [];
   // public estaLogueado:boolean=false;
   private route: Router = new Router;
-  
+  public estaLogueado: boolean = false;
 
   constructor(public usuarioservices:UsuarioService){
 
     
 
     if(this.usuarioservices.usuarioLogueado.user != '' ){
-      // this.estaLogueado=true;
+      this.estaLogueado=true;
       this.usuarioservices.estoyLogueado();
-      //this.listaUsuario = JSON.parse(localStorage.getItem('usuarioLogueado') || '[]');
+
+      
     }
 
-
+    
 
     //Si hay, se guarda en listaUsuario el usuario que este logueado desde el LocalStorage
    // this.listaUsuario = JSON.parse(localStorage.getItem('usuarioLogueado') || '[]');
@@ -46,7 +47,7 @@ export class MenuComponent {
 
     this.listaUsuario = [];
     this.usuarioservices.usuarioLogueado = {nombre: '',apellido:'', mail:'', nacimiento: new Date(), user:'', password: '', tipo_usuario: 0};
-    // this.estaLogueado=false;
+    this.estaLogueado=false;
 
     this.route.navigateByUrl('/bienvenido');
 
