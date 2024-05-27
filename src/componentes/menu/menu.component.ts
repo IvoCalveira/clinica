@@ -16,7 +16,6 @@ import { setAlternateWeakRefImpl } from '@angular/core/primitives/signals';
 export class MenuComponent {
 
   public listaUsuario:Usuario [] = [];
-  // public estaLogueado:boolean=false;
   private route: Router = new Router;
   public estaLogueado: boolean = false;
 
