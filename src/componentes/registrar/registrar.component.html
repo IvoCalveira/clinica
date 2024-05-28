@@ -42,7 +42,27 @@
                     <input type="password" class="form-control form-control-lg" [(ngModel)]="password2"/>
                     <label class="form-label">Repetir contraseña</label>
                   </div>
-
+                  <div data-mdb-input-init class="form-outline form-white mb-4">
+                    <select class="form-control form-control-lg" [(ngModel)]="usuario.tipo_usuario">
+                      <option value="1">Paciente</option>
+                      <option value="2">Medico</option>
+                      <option value="3">Administrador</option>
+                    </select>
+                    <label class="form-label">Ingrese tipo de usuario</label>
+                  </div>
+                  <!-- Acá se definen los tipos de usuario Medico y Administrador -->
+                  <select class="form-control form-control-lg" *ngIf="usuario.tipo_usuario == 2" >
+                    <option value="1">Traumatologo</option>
+                    <option value="2">Clinico</option>
+                    <option value="3">Proctólogo</option>
+                    <option value="4">Nutricionista</option>
+                    <option value="4">Psiquiatra</option>
+                  </select>
+                  <label class="form-label">Ingrese su especialidad</label>
+                  <div data-mdb-input-init class="form-outline form-white mb-4">
+                    <input type="password" class="form-control form-control-lg" [(ngModel)]="password2"/>
+                    <label class="form-label">Repetir contraseña</label>
+                  </div>
              
                   <div *ngIf="usuario.password == password2 && !validarExiste()">
                 <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="button" (click)="registrarEnApi()">Registrarse</button>

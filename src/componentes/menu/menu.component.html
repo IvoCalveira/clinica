@@ -8,14 +8,48 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="'/bienvenido'">Inicio</a>
+            <a class="nav-link active" type="button" aria-current="page" [routerLink]="'/bienvenido'">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="this.estaLogueado == false" [routerLink]="'/bienvenido/login'">Log in</a>
+            <a class="nav-link" type="button" *ngIf="this.estaLogueado == false" [routerLink]="'/bienvenido/login'">Log in</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="this.estaLogueado == false" [routerLink]="'/bienvenido/registrar'">Registrarse</a>
+            <a class="nav-link" type="button" *ngIf="this.estaLogueado == false" [routerLink]="'/bienvenido/registrar'">Registrarse</a>
           </li>
+          <!-- Perfil aplica a todos los tipos de usuario-->
+          <li class="nav-item">
+            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 1 || usuarioservices.usuarioLogueado.tipo_usuario == 2 || usuarioservices.usuarioLogueado.tipo_usuario == 3" >Mi Perfil</a>
+          </li>
+          <!-- Menu para Pacientes (Nuevo turno y Mis turnos entra también en administrador) -->
+          <li class="nav-item">
+            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 1 || usuarioservices.usuarioLogueado.tipo_usuario == 3" [routerLink]="'/bienvenido/registrar'">Nuevo Turno</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 1" [routerLink]="'/bienvenido/registrar'">Historial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 1 || usuarioservices.usuarioLogueado.tipo_usuario == 3" [routerLink]="'/bienvenido/registrar'">Mis turnos</a>
+          </li>
+          <!-- Menu Usuario médico (Ver reportes entra también en administrador) -->
+          <li class="nav-item">
+            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2">Aceptar turnos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2">Modificar horarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2 || usuarioservices.usuarioLogueado.tipo_usuario == 3">Ver reportes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2">Ver pacientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2">Calendario</a>
+          </li>
+          <!-- Menu Usuario Admin -->
+          <li class="nav-item">
+            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2">Administrar médicos</a>
+          </li> 
           <li class="nav-item">
             <a class="nav-link" type="button" *ngIf="usuarioservices.estoyLogueado()" (click)="logout()">Cerrar Sesión</a>
           </li>
