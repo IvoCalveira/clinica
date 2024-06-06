@@ -13,7 +13,7 @@ export class UsuarioService {
     //this.listaUsuario = JSON.parse(localStorage.getItem('usuario') || '[]');
      this.setLogueado();
   }
-  public usuarioLogueado: Usuario = { nombre: '', password: '', mail: '', user:'', apellido: '', nacimiento: new Date(), tipo_usuario:0 };
+  public usuarioLogueado: Usuario = { nombre: '', password: '', mail: '', user:'', apellido: '', nacimiento: new Date(), tipo_usuario:0, dias_habiles:[], especialidad:'', foto_especialidad:'', foto_perfil:'', horario_desde:0, horario_hasta:0, autorizado:true };
 
   public listaUsuario: Usuario[] = [];
 
@@ -28,8 +28,6 @@ export class UsuarioService {
   public registrar(usuario:Usuario){
     return this.http.post(this.APIURL  + "/insertar",usuario);
   }
-
-  
 
   public estoyLogueado() :boolean{
     return this.usuarioLogueado.nombre != '';

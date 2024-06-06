@@ -45,7 +45,7 @@ export class MenuComponent {
 
 
     this.listaUsuario = [];
-    this.usuarioservices.usuarioLogueado = { nombre: '', apellido: '', mail: '', nacimiento: new Date(), user: '', password: '', tipo_usuario: 0 };
+    this.usuarioservices.usuarioLogueado = { nombre: '', apellido: '', mail: '', nacimiento: new Date(), user: '', password: '', tipo_usuario: 0, dias_habiles:[], especialidad:'', foto_especialidad:'', foto_perfil:'', horario_desde:0, horario_hasta:0, autorizado:true };
     this.estaLogueado = false;
 
     this.route.navigateByUrl('/bienvenido');

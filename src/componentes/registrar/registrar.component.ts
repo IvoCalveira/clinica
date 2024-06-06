@@ -14,18 +14,52 @@ import { UsuarioService } from '../../app/servicios/usuario.service';
 })
 export class RegistrarComponent {
   listaUsuarios:Usuario[] = [];
-  public usuario:Usuario = {nombre:'', password:'', apellido:'', user:'', mail:'', tipo_usuario:0, nacimiento: new Date()};
+  public usuario:Usuario = {nombre:'', password:'', apellido:'', user:'', mail:'', tipo_usuario:0, nacimiento: new Date(), dias_habiles:[], especialidad:'', foto_especialidad:'', foto_perfil:'', horario_desde:0, horario_hasta:0, autorizado:true };
   public password2:string='';
+i: any;
 
   constructor(public router:Router, private us:UsuarioService) {
     //this.listaUsuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
   }
 
+  diasSeleccionados: boolean[] = Array(5).fill(false);
+
+  diasSemana: string[] = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'];
+
+
+  onCheckboxChange(index: number, event: any) {
+    this.diasSeleccionados[index] = event.target.checked;
+    this.cargarDias();
+  }
+
+  cargarDias() {
+    this.usuario.dias_habiles = this.diasSeleccionados.filter((day, index) => this.diasSeleccionados[index]);
+  }
+  
 
   validarExiste(){
      return this.listaUsuarios.filter(
        t=> t.nombre.toLowerCase() == this.usuario.nombre.toLowerCase()).length == 1;
   }
+
+  base64(event: Event, tipo: 'foto_especialidad' | 'foto_perfil') {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+    
+    if (file) {  
+                const reader = new FileReader();
+                reader.onload = (e: ProgressEvent<FileReader>) => {
+                    const result = e.target?.result as string;
+                    if (tipo === 'foto_especialidad') {
+                        this.usuario.foto_especialidad = result;
+                    } else if (tipo === 'foto_perfil') {
+                        this.usuario.foto_perfil = result;
+                    }
+                };
+                reader.readAsDataURL(file);
+    }
+
+}
 
     // public registrar(){
     //   this.listaUsuarios.push(this.usuario);
@@ -34,6 +68,9 @@ export class RegistrarComponent {
     //   this.router.navigateByUrl('/login');
     // }
     public registrarEnApi(){
+      if(this.usuario.tipo_usuario == 2 || 3){
+        this.usuario.autorizado = false;
+      }
       this.us.registrar(this.usuario).subscribe(
         x => {
                 console.log(x);

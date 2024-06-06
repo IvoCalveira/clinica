@@ -44,6 +44,7 @@
                   </div>
                   <div data-mdb-input-init class="form-outline form-white mb-4">
                     <select class="form-control form-control-lg" [(ngModel)]="usuario.tipo_usuario">
+                      <option value="null">Seleccionar</option>
                       <option value="1">Paciente</option>
                       <option value="2">Medico</option>
                       <option value="3">Administrador</option>
@@ -51,17 +52,59 @@
                     <label class="form-label">Ingrese tipo de usuario</label>
                   </div>
                   <!-- Acá se definen los tipos de usuario Medico y Administrador -->
-                  <select class="form-control form-control-lg" *ngIf="usuario.tipo_usuario == 2" >
-                    <option value="1">Traumatologo</option>
-                    <option value="2">Clinico</option>
-                    <option value="3">Proctólogo</option>
-                    <option value="4">Nutricionista</option>
-                    <option value="4">Psiquiatra</option>
-                  </select>
-                  <label class="form-label">Ingrese su especialidad</label>
                   <div data-mdb-input-init class="form-outline form-white mb-4">
-                    <input type="password" class="form-control form-control-lg" [(ngModel)]="password2"/>
-                    <label class="form-label">Repetir contraseña</label>
+                  <select class="form-control form-control-lg" *ngIf="usuario.tipo_usuario == 2" [(ngModel)]="usuario.especialidad">
+                    <option value="traumatologo">Traumatologo</option>
+                    <option value="clinico">Clinico</option>
+                    <option value="proctologo">Proctólogo</option>
+                    <option value="nutricionista">Nutricionista</option>
+                    <option value="psiquiatra">Psiquiatra</option>
+                    <label class="form-label">Ingrese su especialidad</label>
+                  </select>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4" *ngIf="usuario.tipo_usuario == 2">
+                  <label for="diasAtencion" class="form-label">Días de Atención:</label>
+                  <div *ngFor="let dia of diasSemana; let i = index">
+                    <label>
+                      <input type="checkbox" (change)="onCheckboxChange(i, $event)" [checked]="diasSeleccionados[i]" /> {{ dia }}
+                    </label>
+                  </div>
+                  <div>
+                    <h3>Estados de los checkboxes (booleanos):</h3>
+                    <ul>
+                      <li *ngFor="let state of diasSeleccionados; let i = index">{{ diasSemana[i] }}: {{ state }}</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3>Estados de los checkboxes (booleanos):</h3>
+                    <ul>
+                      <li *ngFor="let state of usuario.dias_habiles; let i = index">{{ diasSeleccionados[i] }}: {{ state }}</li>
+                    </ul>
+                  </div>
+                
+                    
+                </div>
+
+                <div data-mdb-input-init class="form-outline mb-4" *ngIf="usuario.tipo_usuario == 2 || usuario.tipo_usuario == 3">
+
+                  <label class="form-label">Desde:</label>
+                  <input type="text" class="form-control form-control-lg" [(ngModel)]="usuario.horario_desde"/>
+                  
+                  <label class="form-label">Hasta:</label>
+                  <input type="text" class="form-control form-control-lg" [(ngModel)]="usuario.horario_hasta" />
+
+                  <label class="form-label">Horario de atencion</label>
+                  
+                </div>
+                </div>
+
+                  <div data-mdb-input-init *ngIf="usuario.tipo_usuario == 1 || usuario.tipo_usuario == 2 || usuario.tipo_usuario == 3" class="form-outline form-white mb-4 "> 
+                    <input type="file" class="form-control form-control-lg" name="foto_perfil" (change)="base64($event, 'foto_perfil')"/>
+                    <label class="form-label">Ingrese una imagen de avatar</label>
+                  </div>
+                  <div data-mdb-input-init *ngIf="usuario.tipo_usuario == 2" class="form-outline form-white mb-4 "> 
+                    <input type="file" class="form-control form-control-lg" name="foto_especialidad" (change)="base64($event, 'foto_especialidad')"/>
+                    <label class="form-label">Ingrese una imagen de especialidad</label>
                   </div>
              
                   <div *ngIf="usuario.password == password2 && !validarExiste()">
@@ -79,5 +122,4 @@
           </div>
         </div>
       </div>
-    </div>
   </section>

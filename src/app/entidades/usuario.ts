@@ -6,5 +6,12 @@ export interface Usuario {
     nacimiento:Date;
     tipo_usuario:number;
     mail:string;
+    dias_habiles?:boolean[];
+    especialidad?:string;
+    horario_desde?:number;
+    horario_hasta?:number;
+    foto_perfil?:string | ArrayBuffer | null;
+    foto_especialidad?:string | ArrayBuffer | null;
+    autorizado:boolean;
 
 }
