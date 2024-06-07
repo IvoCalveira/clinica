@@ -27,13 +27,13 @@ i: any;
   diasSemana: string[] = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'];
 
 
-  onCheckboxChange(index: number, event: any) {
+  booleanoDias(index: number, event: any) {
     this.diasSeleccionados[index] = event.target.checked;
     this.cargarDias();
   }
 
   cargarDias() {
-    this.usuario.dias_habiles = this.diasSeleccionados.filter((day, index) => this.diasSeleccionados[index]);
+    return this.usuario.dias_habiles = this.diasSeleccionados.filter((dia, index) => this.diasSeleccionados[index]);
   }
   
 

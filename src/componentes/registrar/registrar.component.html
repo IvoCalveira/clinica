@@ -66,7 +66,7 @@
                   <label for="diasAtencion" class="form-label">Días de Atención:</label>
                   <div *ngFor="let dia of diasSemana; let i = index">
                     <label>
-                      <input type="checkbox" (change)="onCheckboxChange(i, $event)" [checked]="diasSeleccionados[i]" /> {{ dia }}
+                      <input type="checkbox" (change)="booleanoDias(i, $event)" [checked]="diasSeleccionados[i]" /> {{ dia }}
                     </label>
                   </div>
                   <div>
@@ -78,7 +78,7 @@
                   <div>
                     <h3>Estados de los checkboxes (booleanos):</h3>
                     <ul>
-                      <li *ngFor="let state of usuario.dias_habiles; let i = index">{{ diasSeleccionados[i] }}: {{ state }}</li>
+                      <li *ngFor="let state of usuario.dias_habiles; let i = index">{{ usuario.dias_habiles }}: {{ state }}</li>
                     </ul>
                   </div>
                 
