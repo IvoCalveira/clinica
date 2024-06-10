@@ -69,23 +69,18 @@
                       <input type="checkbox" (change)="booleanoDias(i, $event)" [checked]="diasSeleccionados[i]" /> {{ dia }}
                     </label>
                   </div>
-                  <div>
+                  <!-- <div>
                     <h3>Estados de los checkboxes (booleanos):</h3>
                     <ul>
                       <li *ngFor="let state of diasSeleccionados; let i = index">{{ diasSemana[i] }}: {{ state }}</li>
                     </ul>
-                  </div>
-                  <div>
-                    <h3>Estados de los checkboxes (booleanos):</h3>
-                    <ul>
-                      <li *ngFor="let state of usuario.dias_habiles; let i = index">{{ usuario.dias_habiles }}: {{ state }}</li>
-                    </ul>
-                  </div>
+                  </div> -->
+                  
                 
                     
                 </div>
 
-                <div data-mdb-input-init class="form-outline mb-4" *ngIf="usuario.tipo_usuario == 2 || usuario.tipo_usuario == 3">
+                <div data-mdb-input-init class="form-outline mb-4" *ngIf="usuario.tipo_usuario == 2">
 
                   <label class="form-label">Desde:</label>
                   <input type="text" class="form-control form-control-lg" [(ngModel)]="usuario.horario_desde"/>
