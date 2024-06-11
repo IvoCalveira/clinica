@@ -10,7 +10,7 @@ export const routes: Routes = [
     {path:'bienvenido', component:BienvenidoComponent, children:[
         {path:'registrar', component: RegistrarComponent},
         {path:'login', component: LoginComponent},
-        {path:'administrar-medico', component: AdministrarMedicosComponent}
+        {path:'administrar-medicos', component: AdministrarMedicosComponent}
             ]
     },
     {path:'', redirectTo:'bienvenido', pathMatch:'full'},
