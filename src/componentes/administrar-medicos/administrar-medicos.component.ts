@@ -14,7 +14,7 @@ import { Usuario } from '../../app/entidades/usuario';
 })
 export class AdministrarMedicosComponent {
 
-  public listaMedicos: Usuario = { id_usuario: 0, nombre: '', apellido: '', mail: '', nacimiento: new Date(), user: '', password: '', tipo_usuario: 0, dias_habiles:[], especialidad:'', foto_especialidad:'', foto_perfil:'', horario_desde:0, horario_hasta:0, autorizado:false  };
+  public listaMedicos: Usuario = { id_usuario: 0, nombre: '', apellido: '', mail: '', nacimiento: new Date(), user: '', password: '', tipo_usuario: 0, dias_habiles:[], especialidad:'', foto_especialidad:'', foto_perfil:'', horario_desde:0, horario_hasta:0, autorizado:true  };
   public medicos:Usuario [] = [];
   public medicosAutorizar:boolean=false;
 
