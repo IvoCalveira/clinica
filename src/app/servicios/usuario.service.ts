@@ -7,13 +7,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsuarioService {
 
-  private APIURL:string =  "https://ivo_calveira-api_clinica.mdbgo.io";
+  private APIURL:string =  "https://ivo_calveira2-clinicaapi.mdbgo.io";
 
   constructor(public http:HttpClient ) {
     //this.listaUsuario = JSON.parse(localStorage.getItem('usuario') || '[]');
      this.setLogueado();
   }
-  public usuarioLogueado: Usuario = { nombre: '', password: '', mail: '', user:'', apellido: '', nacimiento: new Date(), tipo_usuario:0, dias_habiles:[], especialidad:'', foto_especialidad:'', foto_perfil:'', horario_desde:0, horario_hasta:0, autorizado:true };
+  public usuarioLogueado: Usuario = { id_usuario:0, nombre: '', password: '', mail: '', user:'', apellido: '', nacimiento: new Date(), tipo_usuario:0, dias_habiles:[], especialidad:'', foto_especialidad:'', foto_perfil:'', horario_desde:0, horario_hasta:0, autorizado:true };
 
   public listaUsuario: Usuario[] = [];
 
@@ -31,6 +31,14 @@ export class UsuarioService {
 
   public estoyLogueado() :boolean{
     return this.usuarioLogueado.user != '';
+  }
+
+  public autorizarMedico(usuario: Usuario[]) {
+    return this.http.post(this.APIURL + "/leer", usuario);
+  }
+
+  public autorizarUsuario(usuario: Usuario) {
+    return this.http.post(this.APIURL + "/autorizar", usuario);
   }
 
   public setLogueado(){
