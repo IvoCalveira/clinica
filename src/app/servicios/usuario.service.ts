@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsuarioService {
 
-  private APIURL:string =  "https://ivo_calveira-apiclinica.mdbgo.io";
+  private APIURL:string =  "https://ivo_calveira-api_clinica.mdbgo.io";
 
   constructor(public http:HttpClient ) {
     //this.listaUsuario = JSON.parse(localStorage.getItem('usuario') || '[]');
