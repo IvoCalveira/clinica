@@ -77,6 +77,8 @@ i: any;
                 //this.us.setLogueadoXApi(<Usuario>x)
                 this.router.navigateByUrl('/bienvenido/login')
           }
+          
       );
+      this.router.navigateByUrl('/bienvenido/login')
     }
 }
