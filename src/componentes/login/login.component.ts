@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent {
   // listaUsuarios:Usuario[] = [];
-  public usuario: Usuario = { id_usuario:0, nombre: '', apellido: '', mail: '', nacimiento: new Date(), user: '', password: '', tipo_usuario: 0, dias_habiles:[], especialidad:'', foto_especialidad:'', foto_perfil:'', horario_desde:0, horario_hasta:0, autorizado:true  };
+  public usuario: Usuario = { id_usuario:0, nombre: '', apellido: '', mail: '', nacimiento: new Date(), user: '', password: '', tipo_usuario: 0, dias_habiles:[], especialidad:'', foto_especialidad:'', foto_perfil:'', horario_desde:0, horario_hasta:0, autorizado:true, id_medico:0  };
   public usuarioLocal: Usuario[] = [];
   public loading: boolean = false;
 

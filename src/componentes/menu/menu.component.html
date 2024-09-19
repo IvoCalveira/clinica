@@ -22,7 +22,7 @@
           </li>
           <!-- Menu para Pacientes (Nuevo turno y Mis turnos entra también en administrador) -->
           <li class="nav-item">
-            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 1 || usuarioservices.usuarioLogueado.tipo_usuario == 3">Nuevo Turno</a>
+            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 1 || usuarioservices.usuarioLogueado.tipo_usuario == 3" [routerLink]="'/bienvenido/turnos'">Nuevo Turno</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 1" [routerLink]="'/bienvenido/registrar'">Historial</a>

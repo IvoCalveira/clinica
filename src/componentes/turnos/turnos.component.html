@@ -1,1 +1,32 @@
-<p>turnos works!</p>
+<br>
+
+<div class="form-group">
+    <input type="text" class="form-control form-control-lg" [(ngModel)]="filtroEspecialidad" placeholder="Ingrese especialidad">
+  </div>
+  
+  <br>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Especialidad</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Hora</th>
+        <th scope="col">Opcion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let turno of disponibilidad | filtromedico:filtroEspecialidad | turnosusados: turnosusados" >
+        <td>{{turno.nombre}}</td>
+        <td>{{turno.apellido}}</td>
+        <td>{{turno.especialidad}}</td>
+        <td>{{turno.fecha | date:'fullDate'}}</td>
+        <td>{{turno.hora}}:00</td>
+        <td>
+            <button  type="button" class="btn btn-success" (click)="tomarTurno(turno)">Tomar Turno</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

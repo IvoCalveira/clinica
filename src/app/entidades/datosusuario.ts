@@ -1,4 +1,5 @@
-export interface Usuario {
+export interface Datosusuario {
+    data: {
     id_usuario?: number;
     nombre:string;
     apellido:string;
@@ -15,5 +16,5 @@ export interface Usuario {
     foto_especialidad?:string | ArrayBuffer | null;
     autorizado:boolean;
     id_medico?:number;
-
+    }
 }
