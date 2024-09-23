@@ -17,10 +17,11 @@ export const routes: Routes = [
 
     {path:'bienvenido', loadComponent:() => import('../componentes/bienvenido/bienvenido.component').then(l => l.BienvenidoComponent), canActivate:[usuarioLogueadoGuard], children:[
     //{path:'bienvenido', component:BienvenidoComponent, children:[
+        {path:'turnos', component:TurnosComponent},
         {path:'administrar-medicos',  loadComponent:() => import('../componentes/administrar-medicos/administrar-medicos.component').then(l => l.AdministrarMedicosComponent), canActivate:[LogueadoNivel3Guard]},
         {path:'registrar', component: RegistrarComponent},
         {path:'login', component: LoginComponent},
-        {path:'turnos', component:TurnosComponent},
+        
     ]},
     {path:'', redirectTo:'bienvenido', pathMatch:'full'},
     {path:'**', component:ErrorComponent, },

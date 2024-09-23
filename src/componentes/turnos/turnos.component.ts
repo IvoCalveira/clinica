@@ -14,7 +14,7 @@ import { TurnosusadosPipe } from "../../app/pipe/turnosusados.pipe";
 @Component({
   selector: 'app-turnos',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, JwtModule, FiltromedicoPipe, TurnosusadosPipe],
+  imports: [CommonModule, FormsModule, RouterModule, FiltromedicoPipe, TurnosusadosPipe],
   templateUrl: './turnos.component.html',
   styleUrl: './turnos.component.css'
 })

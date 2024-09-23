@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Usuario } from '../entidades/usuario';
 import { HttpClient } from '@angular/common/http';
 import { Disponibilidad } from '../clases/disponibilidad';
+import { jwtDecode } from 'jwt-decode';
+import { Datosusuario } from '../entidades/datosusuario';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +19,9 @@ export class UsuarioService {
   public usuarioLogueado: Usuario = { id_usuario:0, nombre: '', password: '', mail: '', user:'', apellido: '', nacimiento: new Date(), tipo_usuario:0, dias_habiles:[], especialidad:'', foto_especialidad:'', foto_perfil:'', horario_desde:0, horario_hasta:0, autorizado:true, id_medico:0 };
 
   public listaUsuario: Usuario[] = [];
+
+  public decode: any;
+  
 
   public loginEnApi(usuario:Usuario){
     return this.http.post(this.APIURL  + "/login",usuario);
@@ -44,19 +49,22 @@ export class UsuarioService {
 
 
   public setLogueado(){
-    if (localStorage.getItem('usuarioLocal') ?? '' != '')
-      this.usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLocal') ?? '');
+    if (localStorage.getItem('UsuarioToken') ?? '' != ''){
+      this.decode = jwtDecode<any>(localStorage.getItem('UsuarioToken') ?? '');
+
+    this.usuarioLogueado = this.decode.data;
+    }
   }
 
 
   public GetDisponibilidadMedicos(usuario: Usuario[]) {
-    return this.http.post(this.APIURL + "/get_disponibilidad", usuario);
+    return this.http.post(this.APIURL + "/turnos", usuario);
   }
   public NuevoTurno(usuario: Disponibilidad) {
     return this.http.post(this.APIURL + "/get_disponibilidad", usuario);
   }
   public LeerTurnosTomados(usuario: Disponibilidad[]) {
-    return this.http.post(this.APIURL + "/get_disponibilidad", usuario);
+    return this.http.post(this.APIURL + "/leer_tomados", usuario);
   }
 }
 

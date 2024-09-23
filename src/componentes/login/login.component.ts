@@ -5,6 +5,7 @@ import { Router, RouterModule } from '@angular/router';
 import { MenuComponent } from '../menu/menu.component';
 import { UsuarioService } from '../../app/servicios/usuario.service';
 import { CommonModule } from '@angular/common';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ import { CommonModule } from '@angular/common';
 export class LoginComponent {
   // listaUsuarios:Usuario[] = [];
   public usuario: Usuario = { id_usuario:0, nombre: '', apellido: '', mail: '', nacimiento: new Date(), user: '', password: '', tipo_usuario: 0, dias_habiles:[], especialidad:'', foto_especialidad:'', foto_perfil:'', horario_desde:0, horario_hasta:0, autorizado:true, id_medico:0  };
+  public data: Usuario = { id_usuario:0, nombre: '', apellido: '', mail: '', nacimiento: new Date(), user: '', password: '', tipo_usuario: 0, dias_habiles:[], especialidad:'', foto_especialidad:'', foto_perfil:'', horario_desde:0, horario_hasta:0, autorizado:true, id_medico:0  };
   public usuarioLocal: Usuario[] = [];
   public loading: boolean = false;
 
@@ -40,22 +42,34 @@ export class LoginComponent {
     this.usuarioservices.loginEnApi(this.usuario).subscribe(
       x => {
 
-        if ((<Usuario>x).user != null) {
-          if((<Usuario>x).autorizado == false){ //Si el usuario no esta habilitado, no se loguea
+        if (x == null) {
+          alert("Usuario o Contraseña incorrecto, intente de nuevo");
+        }
+        else{
+          var decode = jwtDecode<any>(x.toString());
+          if (decode.data.user !=null) { 
+        
+
+
+
+          if(decode.data.autorizado == false){ //Si el usuario no esta habilitado, no se loguea
             alert("Su usuario aun no esta habilitado. Por favor contactarse con un administrador");
           } else {
-            this.usuarioservices.setLogueadoXApi(<Usuario>x);
-            localStorage.setItem('usuarioLocal', JSON.stringify(<Usuario>x));
+            localStorage.setItem("UsuarioToken",x.toString());;
+            
+            //this.usuarioservices.setLogueadoXApi(<Usuario>x);
+            this.usuarioservices.setLogueado();
+            // localStorage.setItem('usuarioLocal', JSON.stringify(<Usuario>x));
             this.route.navigateByUrl('/bienvenido');
           }
 
           //Guardamos en el local storage el usuario logueado
-
-
         }
-      }
-    )
 
+            }  
+            }  
+            )
+    this.usuarioservices.estoyLogueado();
   }
 
 

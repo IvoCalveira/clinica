@@ -6,6 +6,7 @@ import { UsuarioService } from '../../app/servicios/usuario.service';
 import { CommonModule } from '@angular/common';
 import { setAlternateWeakRefImpl } from '@angular/core/primitives/signals';
 
+
 @Component({
   selector: 'app-menu',
   standalone: true,
@@ -26,9 +27,6 @@ export class MenuComponent {
     if (this.usuarioservices.usuarioLogueado.user != '') {
       this.estaLogueado = true;
       this.usuarioservices.estoyLogueado();
-     
-
-    }
 
 
 
@@ -39,9 +37,10 @@ export class MenuComponent {
     //if(this.listaUsuario.length>0)
     //  this.estaLogueado=true;
   }
+}
   public logout() {
     //Vaciar el local storage de la sesion iniciada
-    localStorage.clear();
+    localStorage.removeItem('UsuarioToken');
 
 
     this.listaUsuario = [];
