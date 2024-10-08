@@ -39,7 +39,7 @@ export class TurnosComponent {
               console.log("Se han encontrado medicos/admins");
               console.log("Medicos/admins encontrados:", x); // Verificar datos recibidos
               this.medicos = Object.assign([], x);
-              this.sacarUsados(); 
+              this.buscarDisponibilidad(); //reemplazar por sacar usados cuando esté codeado XD
           }
 
           
@@ -94,7 +94,6 @@ export class TurnosComponent {
 
                     this.disponibilidad.push({
                         id_medico: medico.id_medico,
-                        id_usuario: this.decode.data.id_usuario,
                         nombre: medico.nombre,
                         apellido: medico.apellido,
                         especialidad: medico.especialidad,

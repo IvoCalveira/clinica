@@ -41,7 +41,7 @@
                 
                 
                 <td>
-                    <div *ngIf="medico.autorizado; is true then autoriza else desauto">
+                    <div *ngIf="medico.autorizado == true then autoriza else desauto">
                     </div>
                         <ng-template #autoriza>
                             <button type="button" class="btn btn-outline-danger" (click)="Desautorizar(i)">Desautorizar</button>
