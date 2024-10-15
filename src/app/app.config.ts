@@ -5,6 +5,7 @@ import { JwtModule } from "@auth0/angular-jwt";
 
 import { routes } from './app.routes';
 import { HttpClientModule, provideHttpClient} from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,7 +20,7 @@ export const appConfig: ApplicationConfig = {
         },
       }),
       
-   ])] 
+   ]), provideAnimationsAsync()] 
   } 
 export function tokenGetter() {
   return localStorage.getItem("UsuarioToken");

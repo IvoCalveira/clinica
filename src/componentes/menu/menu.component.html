@@ -32,7 +32,7 @@
           </li>
           <!-- Menu Usuario médico (Ver reportes entra también en administrador) -->
           <li class="nav-item">
-            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2">Aceptar turnos</a>
+            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2" [routerLink]="'/bienvenido/aceptarturno'">Aceptar turnos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2">Modificar horarios</a>

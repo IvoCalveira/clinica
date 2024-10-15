@@ -65,8 +65,24 @@ export class UsuarioService {
     return this.http.post(this.APIURL + "/tomar_turno", usuario);
   }
 
-  public LeerTurnosTomados(usuario: Datosusuario) {
+  public LeerTurnosTomados(usuario: Disponibilidad[]) {
     return this.http.post(this.APIURL + "/leer_tomados", usuario);
+  }
+
+  public LeerTurnosMedico(usuario: Datosusuario) {
+    return this.http.post(this.APIURL + "/leer_tomados", usuario);
+  }
+
+  public LeerTurnosPaciente(usuario: Datosusuario) {
+    return this.http.post(this.APIURL + "/leer_tomadosPaciente", usuario);
+  }
+
+  public turnoAceptado(turno:Disponibilidad){
+    return this.http.post(this.APIURL + "/aceptar_turno", turno);
+  }
+
+  public turnoRechazado(turno:Disponibilidad){
+    return this.http.post(this.APIURL + "/rechazar_turno", turno);
   }
 }
 

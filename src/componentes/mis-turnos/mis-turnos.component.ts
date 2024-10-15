@@ -7,13 +7,15 @@ import { Disponibilidad } from '../../app/clases/disponibilidad';
 import { Datosusuario } from '../../app/entidades/datosusuario';
 import { UsuarioService } from '../../app/servicios/usuario.service';
 import { jwtDecode } from 'jwt-decode';
-import { PasstocsvServiceService } from '../../app/servicios/passtocsv-service.service';
 import { PasstocsvService } from '../../app/servicios/passtocsv.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-mis-turnos',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, FiltromedicoPipe, PasstocsvService],
+  imports: [CommonModule, FormsModule, RouterModule, FiltromedicoPipe, MatFormFieldModule,MatInputModule,MatIconModule],
   templateUrl: './mis-turnos.component.html',
   styleUrl: './mis-turnos.component.css'
 })
@@ -24,13 +26,13 @@ export class MisTurnosComponent {
   public filtroEspecialidad: string = '';
 
 
-  constructor(private usuarioservices:UsuarioService, private route: Router,private dialog: Matdialog,private passtocsvService: PasstocsvService){
+  constructor(private usuarioservices:UsuarioService, private route: Router,private passtocsvService: PasstocsvService){
 
     const token = localStorage.getItem('UsuarioToken');
     this.decode = jwtDecode<any>(token!);
 
     console.log(this.decode);
-    this.usuarioservices.LeerTurnosTomados(this.decode).subscribe(
+    this.usuarioservices.LeerTurnosPaciente(this.decode).subscribe(
       x=> {
         if((<Disponibilidad[]>x)?.length >=1){
           console.log("Se han encontrado turnos aceptado", x);

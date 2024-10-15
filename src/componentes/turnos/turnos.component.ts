@@ -100,7 +100,7 @@ export class TurnosComponent {
                         especialidad: medico.especialidad,
                         fecha: this.formatDateForMySQL(new Date(diaActual)), // Convertir fecha al formato MySQL
                         hora: hora,
-                        aceptado: "Pendiente"
+                        estado: "Pendiente"
                     });
                 }
             }

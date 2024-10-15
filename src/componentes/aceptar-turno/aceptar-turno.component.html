@@ -1,1 +1,19 @@
-<p>aceptar-turno works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let turno of turnos">
+        <div class="card turno-card">
+          <div class="card-body">
+            <h4 class="card-title text-center">{{ turno.nombre }} {{turno.apellido}}</h4>
+            <p class="card-text">
+              <strong>Día:</strong> {{ turno.fecha | date: 'yyyy-MM-dd' }} <br>
+              <strong>Horario:</strong> {{ turno.hora }}hs
+            </p>
+            <div class="btn-group w-100" role="group">
+              <button class="btn btn-success w-50" type="button" (click)="Aceptarturno(turno)">Aceptar turno</button>
+              <button class="btn btn-danger w-50" type="button"(click)="Rechazarturno(turno)">Rechazar turno</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
