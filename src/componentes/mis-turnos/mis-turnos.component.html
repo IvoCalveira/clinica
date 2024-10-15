@@ -1,0 +1,25 @@
+<br>
+
+<div class="form-group">
+  <input type="text" class="form-control form-control-lg" [(ngModel)]="filtroEspecialidad" placeholder="Ingrese especialidad">
+</div>
+
+<div class="container"></div>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let turno of turnos | filtromeds:filtroEspecialidad">
+        <div class="card turno-card">
+          <div class="card-body">
+            <h4 class="card-title text-center">{{ turno.nombre }} {{turno.apellido}}</h4>
+            <p class="card-text">
+              <strong>Día:</strong> {{ turno.fecha | date: 'yyyy-MM-dd' }} <br>
+              <strong>Horario:</strong> {{ turno.hora }}hs <br>
+              <strong>Especialidad</strong> {{ turno.especialidad }} <br>
+              <strong>Estado del turno:</strong> {{ turno.aceptado }} 
+            </p>
+            <div class="btn-group w-100" role="group">
+              <!-- <button class="btn btn-chat" type="button" (click)="Chat(turno)">Chat</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

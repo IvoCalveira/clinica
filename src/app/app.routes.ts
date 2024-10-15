@@ -15,6 +15,7 @@ export const routes: Routes = [
     //{path:'bienvenido', component:BienvenidoComponent, children:[
         {path:'administrar-medicos',  loadComponent:() => import('../componentes/administrar-medicos/administrar-medicos.component').then(l => l.AdministrarMedicosComponent), canActivate:[LogueadoNivel3Guard]},
         {path:'turnos', loadComponent:() => import('../componentes/turnos/turnos.component').then(l => l.TurnosComponent), canActivate:[TurnosGuard]},
+        {path:'misturnos', loadComponent:() => import('../componentes/mis-turnos/mis-turnos.component').then(l => l.MisTurnosComponent), canActivate:[TurnosGuard]},
         {path:'registrar', component: RegistrarComponent},
         {path:'login', component: LoginComponent},
         

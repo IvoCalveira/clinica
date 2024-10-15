@@ -65,7 +65,7 @@ export class UsuarioService {
     return this.http.post(this.APIURL + "/tomar_turno", usuario);
   }
 
-  public LeerTurnosTomados(usuario: Disponibilidad[]) {
+  public LeerTurnosTomados(usuario: Datosusuario) {
     return this.http.post(this.APIURL + "/leer_tomados", usuario);
   }
 }
