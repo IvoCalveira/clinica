@@ -60,9 +60,11 @@ export class UsuarioService {
   public GetDisponibilidadMedicos(usuario: Usuario[]) {
     return this.http.post(this.APIURL + "/turnos", usuario);
   }
+
   public NuevoTurno(usuario: Disponibilidad) {
-    return this.http.post(this.APIURL + "/get_disponibilidad", usuario);
+    return this.http.post(this.APIURL + "/tomar_turno", usuario);
   }
+
   public LeerTurnosTomados(usuario: Disponibilidad[]) {
     return this.http.post(this.APIURL + "/leer_tomados", usuario);
   }

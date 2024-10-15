@@ -43,9 +43,6 @@
           <li class="nav-item">
             <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2">Ver pacientes</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2">Calendario</a>
-          </li>
           <!-- Menu Usuario Admin -->
           <li class="nav-item">
             <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 3" [routerLink]="'/bienvenido/administrar-medicos'">Administrar médicos</a>

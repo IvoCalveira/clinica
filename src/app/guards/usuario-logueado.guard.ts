@@ -5,6 +5,8 @@ import { inject } from '@angular/core';
 export const usuarioLogueadoGuard: CanActivateFn = (route, state) => {
   var serv = inject(UsuarioService);
 
+ 
+
   return serv.estoyLogueado();
 };
 
@@ -14,6 +16,22 @@ var serv = inject(UsuarioService);
 
 return serv.usuarioLogueado.user == '';
 };
+
+export const TurnosGuard: CanActivateFn = (route, state) => {
+
+
+  var usServ =inject(UsuarioService);
+  
+  if(usServ.usuarioLogueado.tipo_usuario == 1 || usServ.usuarioLogueado.tipo_usuario == 3){
+    
+    return true;
+  }
+  
+  else{
+   return false;
+  }
+  
+  };
 
 
 export const LogueadoNivel2Guard: CanActivateFn = (route, state) => {

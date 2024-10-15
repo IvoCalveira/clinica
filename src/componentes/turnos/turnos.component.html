@@ -18,7 +18,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let turno of disponibilidad | filtromedico:filtroEspecialidad | turnosusados: turnosusados" >
+      <tr *ngFor="let turno of disponibilidad | filtromedico:filtroEspecialidad | turnosusados : turnosusados" >
         <td>{{turno.nombre}}</td>
         <td>{{turno.apellido}}</td>
         <td>{{turno.especialidad}}</td>
