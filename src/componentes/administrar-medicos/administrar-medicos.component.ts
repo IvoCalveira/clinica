@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UsuarioService } from '../../app/servicios/usuario.service';
 import { Usuario } from '../../app/entidades/usuario';
+import { PasstopdfService } from '../../app/servicios/passtopdf.service';
 
 @Component({
   selector: 'app-administrar-medicos',
@@ -18,7 +19,7 @@ export class AdministrarMedicosComponent {
   public medicos:Usuario [] = [];
   public medicosAutorizar:boolean=false;
 
-  constructor(private usuarioservices:UsuarioService) {
+  constructor(private usuarioservices:UsuarioService,  private passtopdfService: PasstopdfService) {
         
     this.usuarioservices.autorizarMedico(this.medicos).subscribe(
         x=> {
@@ -54,7 +55,7 @@ public Desautorizar(index: number){
     );
         
 }
-descargarPDF(){
-    
+descargarPDF(divID: string){
+    this.passtopdfService.listamedPDF(this.medicos);
 }
 }
