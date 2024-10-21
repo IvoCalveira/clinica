@@ -54,4 +54,7 @@ public Desautorizar(index: number){
     );
         
 }
+descargarPDF(){
+    
+}
 }

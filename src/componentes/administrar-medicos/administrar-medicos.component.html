@@ -1,3 +1,4 @@
+<section class="vh-100 gradient-custom">
 <table class="table table-dark table-borderless">
     <thead class="table-dark">
         <tr>
@@ -7,51 +8,37 @@
             <th>Usuario</th>
             <th>Especialidad</th>
             <th>Acciones</th>
-          </tr>
+            <th class="pdf-btn-column"></th>
+        </tr>
     </thead>
     <tbody>
         <tr *ngFor="let medico of medicos, let i = index">
             <td>
               <div class="align-items-center">
-                <img
-                    [src]="medico.foto_perfil"
-                    alt=""
-                    style="width: 45px; height: 45px"
-                    class="rounded-circle"
-                    />
+                <img [src]="medico.foto_perfil" alt="" style="width: 45px; height: 45px" class="rounded-circle" />
               </div>
             </td>
 
-              <td>
-                  <p class="fw-normal mb-1" >{{medico.nombre}}</p>
-                </td>
-                
-                <td>
-                    <p class="fw-normal mb-1" >{{medico.apellido}}</p>
-                </td>
-                
-                <td>
-                    <p class="fw-normal mb-1">{{medico.user}} </p> 
-                </td>
+            <td><p class="fw-normal mb-1">{{medico.nombre}}</p></td>
+            <td><p class="fw-normal mb-1">{{medico.apellido}}</p></td>
+            <td><p class="fw-normal mb-1">{{medico.user}}</p></td>
+            <td><p class="fw-normal mb-1">{{medico.especialidad}}</p></td>
 
-                <td>
-                    <p class="fw-normal mb-1">{{medico.especialidad}} </p> 
-                </td>
-               
-                
-                
-                <td>
-                    <div *ngIf="medico.autorizado == true then autoriza else desauto">
-                    </div>
-                        <ng-template #autoriza>
-                            <button type="button" class="btn btn-outline-danger" (click)="Desautorizar(i)">Desautorizar</button>
-                            
-                        </ng-template>
-                        <ng-template #desauto>
-                             
-                             <button type="button" class="btn btn-outline-success" (click)="autorizar(i)">Autorizar</button>
-                        </ng-template>
-                </td>   
-            </tr>
-        </tbody>
-  </table>
+            <td>
+                <div *ngIf="medico.autorizado == true then autoriza else desauto"></div>
+                <ng-template #autoriza>
+                    <button type="button" class="btn btn-outline-danger" (click)="Desautorizar(i)">Desautorizar</button>
+                </ng-template>
+                <ng-template #desauto>
+                    <button type="button" class="btn btn-outline-success" (click)="autorizar(i)">Autorizar</button>
+                </ng-template>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Botón PDF fuera de la tabla -->
+<div class="pdf-btn-container">
+    <button type="button" class="btn-download" (click)="descargarPDF()">Descargar PDF Médicos</button>
+</div>
+</section>

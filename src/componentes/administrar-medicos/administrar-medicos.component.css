@@ -1,0 +1,53 @@
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #6a11cb;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(10, 10, 10), rgba(167, 175, 187));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgb(10, 10, 10), rgb(167, 175, 187))
+    }
+.pdf-btn-container {
+    text-align: right; /* Alinea el botón a la derecha */
+    margin-top: 10px;
+}
+
+.pdf-btn-column {
+    width: 1px; /* Columna invisible para mantener estructura de la tabla */
+    padding: 0;
+}
+
+.btn-outline-danger {
+    white-space: nowrap; /* Evita que el texto del botón se corte */
+}
+
+.table {
+    table-layout: fixed; /* Fija el ancho de la tabla para evitar que se deforme */
+    width: 100%;
+}
+.btn-download {
+    background-color: #6a11cb;
+    border: none;
+    border-radius: 50px;
+    margin: 10px;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    display: block; /* Para que tome todo el ancho disponible en el contenedor */
+    margin-left: auto; /* Centra el botón horizontalmente */
+    margin-right: auto; /* Centra el botón horizontalmente */
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-download:hover {
+    background-color: #7d3cdb; /* Color morado más claro en hover */
+}
+
+.pdf-btn-container {
+    text-align: center; /* Alinea el contenido en el centro del contenedor */
+    margin-top: 20px;
+}
+
+
