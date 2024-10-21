@@ -33,10 +33,10 @@ export class ModificarHorariosComponent {
     if (token) {
       this.usuario = jwtDecode<any>(token);
       
-      // Asegurarse de que 'dias_habiles' no sea undefined, en caso de que no esté en el token
-      this.usuario.data.dias_habiles = this.usuario.data.dias_habiles || Array(5).fill(false); // Default to all false if undefined
       
-      // Iniciar 'diasSeleccionados' desde 'dias_habiles' si ya se han cargado días antes
+      this.usuario.data.dias_habiles = this.usuario.data.dias_habiles || Array(5).fill(false); 
+      
+      
       this.diasSeleccionados = [...this.usuario.data.dias_habiles];
     }
   }
