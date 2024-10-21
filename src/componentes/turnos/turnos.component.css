@@ -1,5 +1,40 @@
 .gradient-custom {
-    background: #6a11cb;
-    background: -webkit-linear-gradient(to right, rgba(10, 10, 10), rgba(167, 175, 187));
     background: linear-gradient(to right, rgb(10, 10, 10), rgb(167, 175, 187));
-}
+    min-height: 100vh;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .btn-violeta {
+    background-color: #6a11cb;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-violeta:hover {
+    background-color: #8e44ad;
+    color: white;
+  }
+  
+  thead.thead-dark th {
+    background-color: rgba(10, 10, 10, 0.7);
+    color: white;
+  }
+  
+  .p-3 {
+    padding: 1rem;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1.5rem;
+  }
+  

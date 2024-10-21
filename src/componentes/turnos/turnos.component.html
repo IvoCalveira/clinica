@@ -1,31 +1,29 @@
-<br>
-<section class="vh-100 gradient-custom">
-<div class="form-group">
+
+<section class="vh-100 gradient-custom p-3">
+  <div class="form-group mb-4">
     <input type="text" class="form-control form-control-lg" [(ngModel)]="filtroEspecialidad" placeholder="Ingrese especialidad">
   </div>
-  
-  <br>
 
-  <table class="table">
-    <thead>
+  <table class="table table-striped table-hover">
+    <thead class="thead-dark">
       <tr>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
         <th scope="col">Especialidad</th>
         <th scope="col">Fecha</th>
         <th scope="col">Hora</th>
-        <th scope="col">Opcion</th>
+        <th scope="col">Opción</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let turno of disponibilidad | filtromedico:filtroEspecialidad | turnosusados : turnosusados" >
+      <tr *ngFor="let turno of disponibilidad | filtromedico:filtroEspecialidad | turnosusados : turnosusados">
         <td>{{turno.nombre}}</td>
         <td>{{turno.apellido}}</td>
         <td>{{turno.especialidad}}</td>
         <td>{{turno.fecha | date:'fullDate'}}</td>
         <td>{{turno.hora}}:00</td>
         <td>
-            <button  type="button" class="btn btn-success" (click)="tomarTurno(turno)">Tomar Turno</button>
+          <button type="button" class="btn btn-violeta" (click)="tomarTurno(turno)">Tomar Turno</button>
         </td>
       </tr>
     </tbody>
