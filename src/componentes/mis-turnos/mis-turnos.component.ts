@@ -31,20 +31,18 @@ export class MisTurnosComponent {
     const token = localStorage.getItem('UsuarioToken');
     this.decode = jwtDecode<any>(token!);
 
-    console.log(this.decode);
     this.usuarioservices.LeerTurnosPaciente(this.decode).subscribe(
       x=> {
         if((<Disponibilidad[]>x)?.length >=1){
-          console.log("Se han encontrado turnos aceptado", x);
+          console.log("Se han encontrado turnos", x);
           this.turnos = Object.assign([], x);
       } else {
+        console.log("valor turnos", this.turnos)
         alert("No se encontraron turnos aceptados");
-        this.route.navigateByUrl('/bienvenida');
+        this.route.navigateByUrl('/bienvenido');
       }});
 
   }
 
-  public Chat(turno:Disponibilidad){
-    
-  }
+ 
 }

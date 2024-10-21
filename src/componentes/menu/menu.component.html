@@ -35,13 +35,13 @@
             <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2" [routerLink]="'/bienvenido/aceptarturno'">Aceptar turnos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2">Modificar horarios</a>
+            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2" [routerLink]="'/bienvenido/modificar-horarios'">Modificar horarios</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2 || usuarioservices.usuarioLogueado.tipo_usuario == 3">Ver reportes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2">Ver pacientes</a>
+            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 2" [routerLink]="'/bienvenido/finalizar-turno'">Finalizar turno</a>
           </li>
           <!-- Menu Usuario Admin -->
           <li class="nav-item">

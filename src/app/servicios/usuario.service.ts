@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../entidades/usuario';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Disponibilidad } from '../clases/disponibilidad';
 import { jwtDecode } from 'jwt-decode';
 import { Datosusuario } from '../entidades/datosusuario';
@@ -73,8 +73,26 @@ export class UsuarioService {
     return this.http.post(this.APIURL + "/leer_tomados", usuario);
   }
 
+  public LeerTurnosFinalizados(usuario: Datosusuario) {
+    console.log("Datos enviados a la API:", usuario); // Verificar qué se está enviando
+    return this.http.post<Disponibilidad[]>(this.APIURL + "/leer_finalizado", usuario.data);
+  }
+
+  public FinalizarTurnoApi(turno: Disponibilidad) {
+    console.log("Datos enviados a la API:", turno);
+    return this.http.post(this.APIURL + "/finalizar_turno", turno);
+  }
+
+  public modificarHorario(usuario: Usuario) {
+    return this.http.post(this.APIURL + "/modificar_horario", usuario, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+  }
+
   public LeerTurnosPaciente(usuario: Datosusuario) {
-    return this.http.post(this.APIURL + "/leer_tomadosPaciente", usuario);
+    return this.http.post(this.APIURL + "/leer_tomadosPaciente", usuario.data);
   }
 
   public turnoAceptado(turno:Disponibilidad){

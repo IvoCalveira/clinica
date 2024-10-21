@@ -1,0 +1,27 @@
+<section class="vh-101 gradient-custom">
+    
+    <div data-mdb-input-init class="form-outline mb-4">
+        <label for="diasAtencion" class="form-label">Días de Atención:</label>
+        <div *ngFor="let dia of diasSemana; let i = index">
+          <label>
+            <input type="checkbox" (change)="booleanoDias(i, $event)" [checked]="diasSeleccionados[i]" /> {{ dia }}
+          </label>
+          
+        </div>
+        <button data-mdb-button-init data-mdb-ripple-init class="btn  btn-lg px-5" type="button"
+                (click)="cambiarHorario()">Modificar Horario</button>
+      
+                <div data-mdb-input-init class="form-outline mb-4" >
+
+                    <label class="form-label">Desde:</label>
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="usuario.horario_desde"/>
+                    
+                    <label class="form-label">Hasta:</label>
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="usuario.horario_hasta" />
+  
+                    <label class="form-label">Horario de atencion</label>
+                    
+                  </div>
+      </div>
+      
+</section>

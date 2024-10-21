@@ -16,7 +16,7 @@ export class RegistrarComponent {
   listaUsuarios:Usuario[] = [];
   public usuario:Usuario = {id_usuario:0, nombre:'', password:'', apellido:'', user:'', mail:'', tipo_usuario:0, nacimiento: new Date(), dias_habiles:[], especialidad:'', foto_especialidad:'', foto_perfil:'', horario_desde:0, horario_hasta:0, autorizado:true, id_medico:0 };
   public password2:string='';
-i: any;
+  i: any;
 
   constructor(public router:Router, private us:UsuarioService) {
     //this.listaUsuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');

@@ -17,6 +17,8 @@ export const routes: Routes = [
         {path:'turnos', loadComponent:() => import('../componentes/turnos/turnos.component').then(l => l.TurnosComponent), canActivate:[TurnosGuard]},
         {path:'misturnos', loadComponent:() => import('../componentes/mis-turnos/mis-turnos.component').then(l => l.MisTurnosComponent), canActivate:[TurnosGuard]},
         {path:'aceptarturno', loadComponent:() => import('../componentes/aceptar-turno/aceptar-turno.component').then(l => l.AceptarTurnoComponent), canActivate:[LogueadoNivel2Guard]},
+        {path:'modificar-horarios', loadComponent:() => import('../componentes/modificar-horarios/modificar-horarios.component').then(l => l.ModificarHorariosComponent), canActivate:[LogueadoNivel2Guard]},
+        {path:'finalizar-turno', loadComponent:() => import('../componentes/finalizar-turno/finalizar-turno.component').then(l => l.FinalizarTurnoComponent), canActivate:[LogueadoNivel2Guard]},
         {path:'registrar', component: RegistrarComponent},
         {path:'login', component: LoginComponent},
         

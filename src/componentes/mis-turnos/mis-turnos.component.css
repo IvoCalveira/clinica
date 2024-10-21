@@ -1,0 +1,58 @@
+/* Estilo para las tarjetas de los turnos con borde verde */
+.turno-card {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border: 2px solid #28a745; /* Borde verde */
+}
+
+/* Centrar el título */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Estilo para el texto dentro de la tarjeta */
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* Alineación de los botones */
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Botón "Finalizar turno" en color violeta */
+.btn-finalizar {
+    background-color: #6f42c1; /* Violeta */
+    color: white;
+    border: none;
+    width: 50%;
+}
+
+/* Botón "Chat" en color azul */
+.btn-chat {
+    background-color: #007bff; /* Azul */
+    color: white;
+    border: none;
+    width: 50%;
+}
+
+/* Ajustes de margen de los botones */
+.btn-group .btn {
+    margin-right: 10px;
+}
+
+.btn-group .btn:last-child {
+    margin-right: 0;
+}
+
+/* Estilos de margen y centrado del contenedor */
+.container {
+    margin-top: 30px;
+}

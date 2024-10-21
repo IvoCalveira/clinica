@@ -32,7 +32,7 @@ export class AceptarTurnoComponent {
             this.turnos = Object.assign([], x);
         } else {
           alert("No se encontraron turnos pendientes");
-          this.route.navigateByUrl('/bienvenida');
+          this.route.navigateByUrl('/bienvenido');
         }});
 
     }
