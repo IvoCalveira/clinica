@@ -16,10 +16,8 @@
           <li class="nav-item">
             <a class="nav-link" type="button" *ngIf="this.estaLogueado == false" [routerLink]="'/bienvenido/registrar'">Registrarse</a>
           </li>
-          <!-- Perfil aplica a todos los tipos de usuario-->
-          <li class="nav-item">
-            <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 1 || usuarioservices.usuarioLogueado.tipo_usuario == 2 || usuarioservices.usuarioLogueado.tipo_usuario == 3" >Mi Perfil</a>
-          </li>
+         
+          
           <!-- Menu para Pacientes (Nuevo turno y Mis turnos entra también en administrador) -->
           <li class="nav-item">
             <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 1 || usuarioservices.usuarioLogueado.tipo_usuario == 3" [routerLink]="'/bienvenido/turnos'">Nuevo Turno</a>

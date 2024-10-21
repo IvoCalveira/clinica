@@ -83,12 +83,8 @@ export class UsuarioService {
     return this.http.post(this.APIURL + "/finalizar_turno", turno);
   }
 
-  public modificarHorario(usuario: Usuario) {
-    return this.http.post(this.APIURL + "/modificar_horario", usuario, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    });
+  public modificarHorario(usuario: Datosusuario) {
+    return this.http.post(this.APIURL + "/modificar_horario", usuario.data);
   }
 
   public LeerTurnosPaciente(usuario: Datosusuario) {

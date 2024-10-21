@@ -1,27 +1,25 @@
-<section class="vh-101 gradient-custom">
-    
-    <div data-mdb-input-init class="form-outline mb-4">
-        <label for="diasAtencion" class="form-label">Días de Atención:</label>
-        <div *ngFor="let dia of diasSemana; let i = index">
-          <label>
-            <input type="checkbox" (change)="booleanoDias(i, $event)" [checked]="diasSeleccionados[i]" /> {{ dia }}
-          </label>
-          
+<section class="vh-100 gradient-custom">
+    <div class="card">
+      <h3>Días de Atención:</h3>
+      <div data-mdb-input-init class="form-outline mb-4">
+          <div *ngFor="let dia of diasSemana; let i = index">
+              <label>
+                  <input type="checkbox" (change)="booleanoDias(i, $event)" [checked]="diasSeleccionados[i]" /> {{ dia }}
+              </label>
+          </div>
+          <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label">Desde:</label>
+            <input type="text" class="form-control form-control-lg" [(ngModel)]="usuario.data.horario_desde"/>
+            
+            <label class="form-label">Hasta:</label>
+            <input type="text" class="form-control form-control-lg" [(ngModel)]="usuario.data.horario_hasta"/>
         </div>
-        <button data-mdb-button-init data-mdb-ripple-init class="btn  btn-lg px-5" type="button"
-                (click)="cambiarHorario()">Modificar Horario</button>
-      
-                <div data-mdb-input-init class="form-outline mb-4" >
-
-                    <label class="form-label">Desde:</label>
-                    <input type="text" class="form-control form-control-lg" [(ngModel)]="usuario.horario_desde"/>
-                    
-                    <label class="form-label">Hasta:</label>
-                    <input type="text" class="form-control form-control-lg" [(ngModel)]="usuario.horario_hasta" />
+        
+          <button class="btn btn-lg px-5" type="button" (click)="cambiarHorario()">Modificar Horario</button>
+          <button class="btn btn-lg px-5" type="button" (click)="descargarCSV()">Descargar CSV Turnos</button>
   
-                    <label class="form-label">Horario de atencion</label>
-                    
-                  </div>
+          
       </div>
-      
-</section>
+    </div>
+  </section>
+  
