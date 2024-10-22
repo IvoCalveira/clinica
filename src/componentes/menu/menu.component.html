@@ -22,9 +22,9 @@
           <li class="nav-item">
             <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 1 || usuarioservices.usuarioLogueado.tipo_usuario == 3" [routerLink]="'/bienvenido/turnos'">Nuevo Turno</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 1" [routerLink]="'/bienvenido/registrar'">Historial</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" type="button" *ngIf="usuarioservices.usuarioLogueado.tipo_usuario == 1 || usuarioservices.usuarioLogueado.tipo_usuario == 3" [routerLink]="'/bienvenido/misturnos'">Mis turnos</a>
           </li>

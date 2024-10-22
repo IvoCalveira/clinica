@@ -33,6 +33,7 @@
   
   /* Alineación de los botones */
   .btn-group {
+    
     display: flex;
     justify-content: space-between;
   }
@@ -50,6 +51,15 @@
     width: 50%;
   }
   
+  .btn {
+    background-color: #6a11cb;
+    border: none;
+    border-radius: 50px;
+    margin: 10px;
+}
 
+.btn:hover {
+    background-color: #7d3cdb;
+}
  
   
