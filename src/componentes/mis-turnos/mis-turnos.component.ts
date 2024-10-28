@@ -15,7 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-mis-turnos',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, FiltromedicoPipe, MatFormFieldModule,MatInputModule,MatIconModule],
+  imports: [CommonModule, FormsModule, RouterModule, FiltromedicoPipe,MatIconModule],
   templateUrl: './mis-turnos.component.html',
   styleUrl: './mis-turnos.component.css'
 })

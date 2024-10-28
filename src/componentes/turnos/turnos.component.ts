@@ -39,7 +39,7 @@ export class TurnosComponent {
               console.log("Se han encontrado medicos/admins");
               console.log("Medicos/admins encontrados:", x); // Verificar datos recibidos
               this.medicos = Object.assign([], x);
-              this.sacarUsados(); //reemplazar por sacar usados cuando esté codeado XD
+              this.sacarUsados();
           }
 
           
